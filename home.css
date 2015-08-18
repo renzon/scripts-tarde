@@ -1,1 +1,21 @@
-span {font-style: italic; color: blue}
+span {
+    font-style: italic;
+    color: blue
+}
+
+#s1 {
+    text-decoration: underline
+}
+
+div.borda-tracejada {
+    border: 2px dashed orange;
+    padding: 10px 5px 10px 5px;
+    margin: auto;
+    width: 300px;
+    text-align: center;
+}
+
+div.borda-tracejada:hover {
+    border: 2px dotted red;
+    cursor: progress
+}
