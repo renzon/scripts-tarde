@@ -27,4 +27,19 @@ var derivada_parabola=derivar(parabola);
 console.log(derivada_parabola(1));
 console.log(derivada_parabola(3));
 
+function decorador(funcao){
+  function funcaoDecorada(x){
+    console.log('Antes');
+    var retorno=funcao(x);
+    console.log(retorno);
+    console.log('Depois');
 
+    return retorno;
+  }
+
+  return funcaoDecorada;
+}
+
+
+parabola=decorador(parabola);
+console.log(parabola(2));
