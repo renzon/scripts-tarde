@@ -2,6 +2,7 @@ $(document).ready(function () {
   var $formDiv=$('#form-categoria');
   var $formGroup=$('.form-group');
   var $formCategoria=$('#form-categoria');
+  var $helpBlockSpam=$('span.help-block');
 
   $formDiv.hide();
 
@@ -11,6 +12,7 @@ $(document).ready(function () {
 
   function limparMensagensDeErro(){
     $formGroup.removeClass('has-error');
+    $helpBlockSpam.text('');
   }
 
   $formCategoria.submit(function(evento){
