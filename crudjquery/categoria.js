@@ -3,6 +3,10 @@ $(document).ready(function () {
 
   $form.hide();
 
+  $('#mostrar-form-botao').click(function(){
+    $form.slideToggle();
+  });
+
 
 });
 
