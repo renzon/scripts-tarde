@@ -15,13 +15,18 @@ $(document).ready(function () {
 
 
   var $divSuicida = $('#div-suicida');
-
-  $('.suicida').click(function () {
+  var contador=0;
+  function removerBotoes() {
     $divSuicida.empty();
-  });
+    contador+=1;
+    console.log(contador);
+  }
+  $('.suicida').click(removerBotoes);
 
   $('#btn-highlinder').click(function () {
-    $divSuicida.append('<button id="btn-suicida" class="btn btn-danger suicida"> <i class="glyphicon glyphicon-trash"></i></button>');
+    var $btn=$('<button id="btn-suicida" class="btn btn-danger suicida"> <i class="glyphicon glyphicon-trash"></i></button>');
+    $btn.click(removerBotoes);
+    $divSuicida.append($btn);
   });
 
 
