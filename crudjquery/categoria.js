@@ -28,17 +28,39 @@ $(document).ready(function () {
   }
 
   function adicionarCategoria(categoria) {
-    var linhaTabela='<tr>';
-    linhaTabela+='<td>'+ categoria.id+'</td>';
-    linhaTabela+='<td>'+ categoria.creation+'</td>';
-    linhaTabela+='<td>'+ categoria.nome+'</td>';
-    linhaTabela+= '<td>';
+    var linhaTabela = '<tr>';
+    linhaTabela += '<td>' + categoria.id + '</td>';
+    linhaTabela += '<td>' + categoria.creation + '</td>';
+    linhaTabela += '<td>' + categoria.nome + '</td>';
+    linhaTabela += '<td>';
 
-    linhaTabela+='<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>';
-    linhaTabela+='</td></tr>';
+    linhaTabela += '<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>';
+    linhaTabela += '</td></tr>';
     $tabelaCategoria.prepend(linhaTabela);
     $inputNome.val('');
   }
+
+  function listarCategorias(categorias) {
+    $.each(categorias,function(index, cat){
+      adicionarCategoria(cat);
+    })
+  }
+
+  var categorias = [{
+    "nome": "Notebook 2",
+    "id": 5910974510923776,
+    "creation": "09/08/2015 16:44:20"
+  }, {
+    "nome": "Celular",
+    "id": 6473924464345088,
+    "creation": "09/08/2015 17:29:42"
+  },
+    {
+      "nome": "Tablets",
+      "id": 5275456790069248,
+      "creation": "09/09/2015 09:12:05"
+    }];
+  listarCategorias(categorias);
 
   $formCategoria.submit(function (evento) {
     evento.preventDefault();
