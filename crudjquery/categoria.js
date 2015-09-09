@@ -36,7 +36,14 @@ $(document).ready(function () {
 
     linhaTabela += '<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>';
     linhaTabela += '</td></tr>';
-    $tabelaCategoria.prepend(linhaTabela);
+    var $linha=$(linhaTabela);
+    $linha.find('button').click(function(){
+      console.log('Apagando categoria com id '+ categoria.id);
+      $linha.remove();
+    });
+
+
+    $tabelaCategoria.prepend($linha);
     $inputNome.val('');
   }
 
