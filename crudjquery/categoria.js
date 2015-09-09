@@ -1,23 +1,39 @@
 $(document).ready(function () {
-  var $formDiv=$('#form-categoria');
-  var $formGroup=$('.form-group');
-  var $formCategoria=$('#form-categoria');
-  var $helpBlockSpam=$('span.help-block');
+  var $formDiv = $('#form-div');
+  var $formGroup = $('.form-group');
+  var $formCategoria = $('#form-categoria');
+  var $helpBlockSpam = $('span.help-block');
+  var $inputNome = $('#input-nome');
 
   $formDiv.hide();
 
-  $('#mostrar-form-botao').click(function(){
+  $('#mostrar-form-botao').click(function () {
     $formDiv.slideToggle();
   });
 
-  function limparMensagensDeErro(){
+  function limparMensagensDeErro() {
     $formGroup.removeClass('has-error');
     $helpBlockSpam.text('');
   }
 
-  $formCategoria.submit(function(evento){
+  function mostrarErros(erros) {
+    var spanHelpPrefixo = '#span-help-';
+
+    $.each(erros, function (propriedade, msg) {
+      $(spanHelpPrefixo + propriedade).text(msg);
+    });
+  }
+
+  $formCategoria.submit(function (evento) {
     evento.preventDefault();
     limparMensagensDeErro();
+    if ($inputNome.val() === '') {
+      mostrarErros({
+        'nome': 'Campo Obrigatório',
+        'idade': 'idade Obrigatória'
+      });
+    }
+
   });
 
 
