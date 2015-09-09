@@ -18,9 +18,11 @@ $(document).ready(function () {
 
   function mostrarErros(erros) {
     var spanHelpPrefixo = '#span-help-';
+    var formGroupPrefixo = '#form-group-';
 
     $.each(erros, function (propriedade, msg) {
       $(spanHelpPrefixo + propriedade).text(msg);
+      $(formGroupPrefixo + propriedade).addClass('has-error');
     });
   }
 
