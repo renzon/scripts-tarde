@@ -37,9 +37,9 @@ $(document).ready(function () {
 
     linhaTabela += '<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>';
     linhaTabela += '</td></tr>';
-    var $linha=$(linhaTabela);
-    $linha.find('button').click(function(){
-      console.log('Apagando categoria com id '+ categoria.id);
+    var $linha = $(linhaTabela);
+    $linha.find('button').click(function () {
+      console.log('Apagando categoria com id ' + categoria.id);
       $linha.remove();
     });
 
@@ -49,13 +49,10 @@ $(document).ready(function () {
   }
 
   function listarCategorias(categorias) {
-    $.each(categorias,function(index, cat){
+    $.each(categorias, function (index, cat) {
       adicionarCategoria(cat);
     });
-    $listarAjaxLoader.slideUp();
   }
-
-
   $formCategoria.submit(function (evento) {
     evento.preventDefault();
     limparMensagensDeErro();
@@ -75,10 +72,19 @@ $(document).ready(function () {
 
   });
 
+
   // Listando Categorias com Ajax
   $listarAjaxLoader.slideDown();
-  $.get('http://localhost:8080/categorias/rest').success(listarCategorias);
+
+  $.get('http://localhost:8080/categorias/rest').success(
+    listarCategorias
+  ).error(function () {
+      alert('Deu pau');
+    }).always(function(){
+      $listarAjaxLoader.slideUp();
+    });
 });
+
 
 
 
