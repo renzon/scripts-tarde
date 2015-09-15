@@ -53,21 +53,6 @@ $(document).ready(function () {
     })
   }
 
-  var categorias = [{
-    "nome": "Notebook 2",
-    "id": 5910974510923776,
-    "creation": "09/08/2015 16:44:20"
-  }, {
-    "nome": "Celular",
-    "id": 6473924464345088,
-    "creation": "09/08/2015 17:29:42"
-  },
-    {
-      "nome": "Tablets",
-      "id": 5275456790069248,
-      "creation": "09/09/2015 09:12:05"
-    }];
-  listarCategorias(categorias);
 
   $formCategoria.submit(function (evento) {
     evento.preventDefault();
@@ -87,6 +72,9 @@ $(document).ready(function () {
     }
 
   });
+
+  // Listando Categorias com Ajax
+  $.get('http://localhost:8080/categorias/rest').success(listarCategorias);
 });
 
 
