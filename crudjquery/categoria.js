@@ -36,11 +36,22 @@ $(document).ready(function () {
     linhaTabela += '<td>';
 
     linhaTabela += '<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>';
+    linhaTabela += '<img hidden="hidden" src="../img/ajax-loader.gif" />';
     linhaTabela += '</td></tr>';
     var $linha = $(linhaTabela);
-    $linha.find('button').click(function () {
-      console.log('Apagando categoria com id ' + categoria.id);
-      $linha.remove();
+    var $ajaxLoader=$linha.find('img');
+    var $botao = $linha.find('button');
+    $botao.click(function () {
+      $botao.hide();
+      $ajaxLoader.fadeIn();
+      $.post('http://localhost:8080/categorias/rest/delete',{id:categoria.id}).success(function(){
+        $linha.remove();
+      }).error(function(){
+        $botao.fadeIn();
+        $ajaxLoader.hide();
+        alert('Não foi possível apagar no momento');
+      });
+
     });
 
 
