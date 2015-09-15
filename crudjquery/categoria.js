@@ -5,6 +5,7 @@ $(document).ready(function () {
   var $helpBlockSpam = $('span.help-block');
   var $inputNome = $('#input-nome');
   var $tabelaCategoria = $('#tabela-categoria');
+  var $listarAjaxLoader = $('#listar-ajax-loader');
 
   $formDiv.hide();
 
@@ -50,7 +51,8 @@ $(document).ready(function () {
   function listarCategorias(categorias) {
     $.each(categorias,function(index, cat){
       adicionarCategoria(cat);
-    })
+    });
+    $listarAjaxLoader.slideUp();
   }
 
 
@@ -68,12 +70,13 @@ $(document).ready(function () {
         "nome": nome,
         "id": 5910974510923776,
         "creation": "09/08/2015 16:44:20"
-      })
+      });
     }
 
   });
 
   // Listando Categorias com Ajax
+  $listarAjaxLoader.slideDown();
   $.get('http://localhost:8080/categorias/rest').success(listarCategorias);
 });
 
