@@ -68,18 +68,26 @@ $(document).ready(function () {
     evento.preventDefault();
     limparMensagensDeErro();
     var nome = $inputNome.val();
-    if (nome === '') {
-      mostrarErros({
-        'nome': 'Campo Obrigatório',
-        'idade': 'idade Obrigatória'
+    $.post('http://localhost:8080/categorias/rest/new',{'nome':nome}).success(
+      function(categoria){
+        adicionarCategoria(categoria);
+        $inputNome.val('')
       });
-    } else {
-      adicionarCategoria({
-        "nome": nome,
-        "id": 5910974510923776,
-        "creation": "09/08/2015 16:44:20"
-      });
-    }
+
+
+
+    //if (nome === '') {
+    //  mostrarErros({
+    //    'nome': 'Campo Obrigatório',
+    //    'idade': 'idade Obrigatória'
+    //  });
+    //} else {
+    //  adicionarCategoria({
+    //    "nome": nome,
+    //    "id": 5910974510923776,
+    //    "creation": "09/08/2015 16:44:20"
+    //  });
+    //}
 
   });
 
