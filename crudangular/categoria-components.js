@@ -7,7 +7,11 @@
       restric: 'E',
       templateUrl: 'categoria-form.html',
       replace: true,
-      scope:{}
+      scope:{},
+      controller: function($scope){
+        $scope.categoria={nome:'Notebooks'};
+
+      }
     };
   });
 })();
