@@ -81,7 +81,7 @@ $(document).ready(function () {
   // Listando Categorias com Ajax
   $listarAjaxLoader.slideDown();
 
-  $.get('http://localhost:8080/categorias/rest').success(
+  $.get('http://localhost:8080/scripts-tarde/categorias/rest').success(
     listarCategorias
   ).error(function () {
       alert('Deu pau');
