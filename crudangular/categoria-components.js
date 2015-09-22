@@ -11,6 +11,10 @@
       controller: function($scope){
         $scope.categoria={nome:'Notebooks'};
 
+        $scope.salvar = function(){
+          console.log($scope.categoria);
+        }
+
       }
     };
   });
