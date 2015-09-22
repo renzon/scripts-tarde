@@ -1,5 +1,5 @@
 (function(){
-  var categoriaModulo = angular.module('categoriaModulo',[]);
+  var categoriaModulo = angular.module('categoriaModulo',['categoriaServicos']);
 
   categoriaModulo.directive('categoriaForm',
   function(){
@@ -8,11 +8,11 @@
       templateUrl: 'categoria-form.html',
       replace: true,
       scope:{},
-      controller: function($scope){
+      controller: function($scope, CategoriaAPI){
         $scope.categoria={nome:'Notebooks'};
 
         $scope.salvar = function(){
-          console.log($scope.categoria);
+          CategoriaAPI.salvar($scope.categoria);
         }
 
       }
