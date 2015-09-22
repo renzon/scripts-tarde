@@ -3,6 +3,6 @@
 
   var categoriaControler = categoriaApp.controller('CategoriaCtrl',
     function ($scope) {
-
+      $scope.categoriaNova = {nome:'Notebooks'};
     });
 })();

@@ -6,7 +6,8 @@
     return {
       restric: 'E',
       templateUrl: 'categoria-form.html',
-      replace: true
+      replace: true,
+      scope:{}
     };
   });
 })();
