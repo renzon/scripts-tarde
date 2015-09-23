@@ -30,4 +30,18 @@
       }
     };
   });
+
+
+  categoriaModulo.directive('categoriaTabela',
+    function () {
+      return {
+        restric: 'E',
+        templateUrl: 'categoria-tabela.html',
+        replace: true,
+        scope: {},
+        controller: function ($scope, CategoriaAPI) {
+
+        }
+      };
+    });
 })();
