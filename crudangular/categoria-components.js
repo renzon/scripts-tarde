@@ -41,11 +41,16 @@
         scope: {},
         controller: function ($scope, CategoriaAPI) {
           $scope.categorias=[];
+          $scope.carregandoCategoriasFlag=true;
 
           CategoriaAPI.listar(function(categorias){
             $.each(categorias,function(index, cat){
               $scope.categorias.push(cat);
             });
+          }, function(){
+
+          },function(){
+            $scope.carregandoCategoriasFlag=false;
           });
 
 
