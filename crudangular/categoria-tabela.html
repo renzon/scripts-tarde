@@ -14,13 +14,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr ng-repeat="categoria in categorias">
       <td>
         <button class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-pencil"></i></button>
       </td>
-      <td>5910974510923776</td>
-      <td>09/08/2015 16:44:20</td>
-      <td>Notebook 2</td>
+      <td>{{categoria.id}}</td>
+      <td>{{categoria.creation}}</td>
+      <td>{{categoria.nome}}</td>
       <td>
         <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
       </td>
