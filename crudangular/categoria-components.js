@@ -40,6 +40,14 @@
         replace: true,
         scope: {},
         controller: function ($scope, CategoriaAPI) {
+          $scope.categorias=[];
+
+          CategoriaAPI.listar(function(categorias){
+            $.each(categorias,function(index, cat){
+              $scope.categorias.push(cat);
+            });
+          });
+
 
         }
       };
