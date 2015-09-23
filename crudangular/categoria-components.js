@@ -11,14 +11,18 @@
       controller: function($scope, CategoriaAPI){
         $scope.categoria={nome:'Notebooks'};
         $scope.erros={};
+        $scope.salvandoCategoriaFlag=false;
 
         $scope.salvar = function(){
           $scope.erros={};
+          $scope.salvandoCategoriaFlag=true;
           CategoriaAPI.salvar($scope.categoria, function(categoria){
             console.log(categoria);
 
           },function(erros){
             $scope.erros=erros;
+          },function(){
+            $scope.salvandoCategoriaFlag=false;
           });
 
         }
