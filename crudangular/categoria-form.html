@@ -1,10 +1,10 @@
 <div class="well">
-  <h1 class="text-center">Categoria Form {{categoriaSalva}}</h1>
+  <h1 class="text-center">Categoria Form</h1>
 
   <form  method="post" role="form" ng-submit="salvar()">
     <input type="hidden" value="057cfacb9d350ad5c951d9c56f90b9a8" name="_csrf_code">
 
-    <div class="form-group  has-error">
+    <div class="form-group" ng-class="{'has-error':erros.nome}">
       <label for="nomeInput" class="control-label">Nome </label>
       <input id="nomeInput" type="text" class="form-control" ng-model="categoria.nome" />
       <span class="help-block">Required field</span></div>

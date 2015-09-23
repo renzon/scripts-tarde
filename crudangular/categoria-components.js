@@ -10,13 +10,15 @@
       scope:{},
       controller: function($scope, CategoriaAPI){
         $scope.categoria={nome:'Notebooks'};
-        $scope.categoriaSalva={}
+        $scope.erros={};
 
         $scope.salvar = function(){
+          $scope.erros={};
           CategoriaAPI.salvar($scope.categoria, function(categoria){
-            $scope.categoriaSalva=categoria;
             console.log(categoria);
 
+          },function(erros){
+            $scope.erros=erros;
           });
 
         }

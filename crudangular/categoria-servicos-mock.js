@@ -3,20 +3,22 @@
 
   categoriaServicos.factory('CategoriaAPI', function ($rootScope) {
     return {
-      salvar: function (categoria, callbackSucesso) {
+      salvar: function (categoria, callbackSucesso, callbackErro) {
         console.log('Iniciando salvamento ');
 
         const delay = 2000;
         var id = 0;
         setTimeout(function () {
           id++;
-          if (callbackSucesso) {
+          if (callbackSucesso && categoria.nome!=='') {
             var categoriaSalva = {
               'id': id,
               nome: categoria.nome,
               creation: '02/02/02 02:02:02'
             }
             callbackSucesso(categoriaSalva);
+          }else if(callbackErro && categoria.nome===''){
+            callbackErro({nome:'Campo Obrigatório'})
           }
           $rootScope.$digest();
         }, delay);
