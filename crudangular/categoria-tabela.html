@@ -14,16 +14,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="categoria in categorias">
-      <td>
-        <button class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-pencil"></i></button>
-      </td>
-      <td>{{categoria.id}}</td>
-      <td>{{categoria.creation}}</td>
-      <td>{{categoria.nome}}</td>
-      <td>
-        <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
-      </td>
+    <tr ng-repeat="cat in categorias" categoria-linha
+            categoria="cat">
+
     </tr>
     </tbody>
   </table>
