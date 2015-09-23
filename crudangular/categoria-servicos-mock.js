@@ -1,7 +1,7 @@
 (function () {
   var categoriaServicos = angular.module('categoriaServicos', [])
 
-  categoriaServicos.factory('CategoriaAPI', function () {
+  categoriaServicos.factory('CategoriaAPI', function ($rootScope) {
     return {
       salvar: function (categoria, callbackSucesso) {
         console.log('Iniciando salvamento ');
@@ -18,6 +18,7 @@
             }
             callbackSucesso(categoriaSalva);
           }
+          $rootScope.$digest();
         }, delay);
 
         console.log('Finalizando chamado do serviço');
