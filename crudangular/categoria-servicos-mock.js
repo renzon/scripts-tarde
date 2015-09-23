@@ -11,7 +11,7 @@
         var id = 0;
         setTimeout(function () {
           id++;
-          if (callbackSucesso && categoria.nome !== '') {
+          if (callbackSucesso &&  categoria.nome!== undefined) {
             var categoriaSalva = {
               'id': id,
               nome: categoria.nome,

@@ -7,7 +7,9 @@
         restric: 'E',
         templateUrl: 'categoria-form.html',
         replace: true,
-        scope: {},
+        scope: {
+          salvarCategoria:'&'
+        },
         controller: function ($scope, CategoriaAPI) {
           $scope.categoria = {nome: 'Notebooks'};
           $scope.erros = {};
@@ -17,7 +19,7 @@
             $scope.erros = {};
             $scope.salvandoCategoriaFlag = true;
             CategoriaAPI.salvar($scope.categoria, function (categoria) {
-              console.log(categoria);
+              $scope.salvarCategoria({'categoria':categoria});
 
             }, function (erros) {
               $scope.erros = erros;
@@ -38,9 +40,10 @@
         restric: 'E',
         templateUrl: 'categoria-tabela.html',
         replace: true,
-        scope: {},
+        scope: {
+          categorias:'='
+        },
         controller: function ($scope, CategoriaAPI) {
-          $scope.categorias = [];
           $scope.carregandoCategoriasFlag = true;
 
           CategoriaAPI.listar(function (categorias) {
