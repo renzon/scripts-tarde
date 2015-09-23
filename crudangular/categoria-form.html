@@ -7,7 +7,7 @@
     <div class="form-group" ng-class="{'has-error':erros.nome}">
       <label for="nomeInput" class="control-label">Nome </label>
       <input id="nomeInput" type="text" class="form-control" ng-model="categoria.nome" />
-      <span class="help-block">Required field</span></div>
+      <span class="help-block">{{erros.nome}}</span></div>
 
     <button type="submit" class="btn btn-success">Save</button>
   </form>
