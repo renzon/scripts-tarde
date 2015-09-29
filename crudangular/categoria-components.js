@@ -73,9 +73,11 @@
         },
         controller: function ($scope, CategoriaAPI) {
           $scope.modoEdicalFlag=false;
+          $scope.categoriaParaEdicao={};
 
           $scope.entrarNoModoDeEdicao=function(){
              $scope.modoEdicalFlag=true;
+            $scope.categoriaParaEdicao.nome=$scope.categoria.nome;
           };
 
           $scope.sairNoModoDeEdicao=function(){
