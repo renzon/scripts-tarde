@@ -15,7 +15,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="cat in categorias" categoria-linha
-            categoria="cat">
+            categoria="cat" categoria-deletada-listener="removerLinha($index)">
 
     </tr>
     </tbody>

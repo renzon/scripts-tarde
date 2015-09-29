@@ -56,6 +56,10 @@
             $scope.carregandoCategoriasFlag = false;
           });
 
+          $scope.removerLinha=function(index){
+            $scope.categorias.splice(index, 1);
+          };
+
 
         }
       };
@@ -69,7 +73,8 @@
         templateUrl: 'categoria-linha.html',
         replace: true,
         scope: {
-          categoria:'='
+          categoria:'=',
+          categoriaDeletadaListener : '&'
         },
         controller: function ($scope, CategoriaAPI) {
           $scope.modoEdicalFlag=false;
@@ -91,6 +96,15 @@
               $scope.sairNoModoDeEdicao();
             })
           };
+
+          $scope.deletar=function(){
+            CategoriaAPI.deletar($scope.id,
+              function(){
+                $scope.categoriaDeletadaListener();
+
+              }
+            );
+          }
 
 
         }

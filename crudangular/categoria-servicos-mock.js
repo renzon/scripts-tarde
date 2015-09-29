@@ -79,6 +79,25 @@
         }, delay);
 
         console.log('Finalizando chamado do serviço');
+      },
+
+      deletar: function (id,callbackSucesso, callbackErro, callbackAlways) {
+        setTimeout(function () {
+          if (callbackSucesso) {
+
+            callbackSucesso();
+          } else if (callbackErro && categoria.nome === '') {
+            callbackErro({nome: 'Campo Obrigatório'})
+          }
+
+          if (callbackAlways) {
+            callbackAlways();
+          }
+
+          $rootScope.$digest();
+        }, delay);
+
+        console.log('Finalizando chamado do serviço');
       }
     };
   });
