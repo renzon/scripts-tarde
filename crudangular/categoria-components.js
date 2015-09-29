@@ -84,6 +84,14 @@
              $scope.modoEdicalFlag=false;
           };
 
+          $scope.editar=function(){
+            CategoriaAPI.editar($scope.categoriaParaEdicao,
+            function(categoriaEditada){
+              $scope.categoria.nome=categoriaEditada.nome;
+              $scope.sairNoModoDeEdicao();
+            })
+          };
+
 
         }
       };

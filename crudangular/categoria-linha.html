@@ -6,15 +6,18 @@
             ng-click="sairNoModoDeEdicao()"><i class="glyphicon glyphicon-floppy-remove"></i></button>
   </td>
   <td><span ng-hide="modoEdicalFlag">{{categoria.nome}}</span>
-    <div class="input-group" style="width: 200px;" ng-show="modoEdicalFlag">
-      <div class="input-group">
-        <input type="text" class="form-control" ng-model="categoriaParaEdicao.nome" >
+
+    <form ng-submit="editar()">
+      <div class="input-group" style="width: 200px;" ng-show="modoEdicalFlag">
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="categoriaParaEdicao.nome">
       <span class="input-group-btn">
-        <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-floppy-save"></i></button>
+        <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-floppy-save"></i></button>
       </span>
+        </div>
+        <!-- /input-group -->
       </div>
-      <!-- /input-group -->
-    </div>
+    </form>
   </td>
   <td>{{categoria.id}}</td>
   <td>{{categoria.creation}}</td>
