@@ -2,7 +2,7 @@
   var categoriaServicos = angular.module('categoriaServicos', [])
 
   categoriaServicos.factory('CategoriaAPI', function ($rootScope) {
-    const delay = 2000;
+    const delay = 2;
 
     return {
       salvar: function (categoria, callbackSucesso, callbackErro, callbackAlways) {

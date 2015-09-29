@@ -72,7 +72,15 @@
           categoria:'='
         },
         controller: function ($scope, CategoriaAPI) {
+          $scope.modoEdicalFlag=false;
 
+          $scope.entrarNoModoDeEdicao=function(){
+             $scope.modoEdicalFlag=true;
+          };
+
+          $scope.sairNoModoDeEdicao=function(){
+             $scope.modoEdicalFlag=false;
+          };
 
 
         }

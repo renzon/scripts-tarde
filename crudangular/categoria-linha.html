@@ -1,10 +1,23 @@
 <tr>
   <td>
-    <button class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-pencil"></i></button>
+    <button class="btn btn-primary btn-sm" ng-hide="modoEdicalFlag"
+            ng-click="entrarNoModoDeEdicao()"><i class="glyphicon glyphicon-pencil"></i></button>
+    <button class="btn btn-warning btn-sm" ng-show="modoEdicalFlag"
+            ng-click="sairNoModoDeEdicao()"><i class="glyphicon glyphicon-floppy-remove"></i></button>
+  </td>
+  <td><span ng-hide="modoEdicalFlag">{{categoria.nome}}</span>
+    <div class="input-group" style="width: 200px;" ng-show="modoEdicalFlag">
+      <div class="input-group">
+        <input type="text" class="form-control" >
+      <span class="input-group-btn">
+        <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-floppy-save"></i></button>
+      </span>
+      </div>
+      <!-- /input-group -->
+    </div>
   </td>
   <td>{{categoria.id}}</td>
   <td>{{categoria.creation}}</td>
-  <td>{{categoria.nome}}</td>
   <td>
     <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
   </td>
