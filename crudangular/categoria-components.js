@@ -50,6 +50,7 @@
             $.each(categorias, function (index, cat) {
               $scope.categorias.push(cat);
             });
+
           }, function () {
 
           }, function () {
@@ -83,6 +84,7 @@
           $scope.entrarNoModoDeEdicao=function(){
              $scope.modoEdicalFlag=true;
             $scope.categoriaParaEdicao.nome=$scope.categoria.nome;
+            $scope.categoriaParaEdicao.id=$scope.categoria.id;
           };
 
           $scope.sairNoModoDeEdicao=function(){
@@ -98,7 +100,7 @@
           };
 
           $scope.deletar=function(){
-            CategoriaAPI.deletar($scope.id,
+            CategoriaAPI.deletar($scope.categoria.id,
               function(){
                 $scope.categoriaDeletadaListener();
 
