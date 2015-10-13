@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="../css/qunit-1.19.0.css" />
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script type="application/javascript" src="../js/qunit-1.19.0.js" ></script>
+  <script src="../js/jquery.min.js"></script>
+  <script type="application/javascript" src="hello.js" ></script>
+
+  <script src="../crudjquery/categoria.js"></script>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Crud de Categoria </h1>
+
+      <div id="form-div" class="well">
+        <h1 class="text-center">Categoria Form</h1>
+
+        <form id="form-categoria" action="#" method="post" role="form">
+          <input type="hidden" value="057cfacb9d350ad5c951d9c56f90b9a8" name="_csrf_code">
+
+          <div id="form-group-nome" class="form-group">
+            <label for="input-nome" class="control-label">Nome </label>
+            <input id="input-nome" type="text" class="form-control" name="nome" value="">
+            <span id="span-help-nome" class="help-block"></span></div>
+
+          <button  type="submit" class="btn btn-success">Save</button>
+        </form>
+      </div>
+      <button id="mostrar-form-botao" class="btn btn-success">Criar Nova Categoria</button>
+      <hr>
+      <h2>Lista de Categorias</h2>
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Creation</th>
+          <th>Nome</th>
+        </tr>
+        </thead>
+        <tbody id="tabela-categoria">
+        </tbody>
+      </table>
+      <img id="listar-ajax-loader" hidden="hidden" src="../img/ajax-loader.gif" />
+    </div>
+
+
+  </div>
+</div>
+
+</body>
+</html>
