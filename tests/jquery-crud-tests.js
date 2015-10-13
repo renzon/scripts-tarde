@@ -25,6 +25,7 @@ $.get = function (url) {
 QUnit.test('Teste de Chamada Listar', function (assert) {
   assert.strictEqual('http://localhost:8080/categorias/rest', urlGlobal, 'Chamada à url correta');
 
+  // Testes de Chamada com sucesso
   var $tabelaCategoria = $('#tabela-categoria');
   assert.strictEqual(0, $tabelaCategoria.children().length, 'Tabela não possui linhas no início da chamada');
 
@@ -34,5 +35,23 @@ QUnit.test('Teste de Chamada Listar', function (assert) {
   xhrGlobal.listarCategorias(categorias);
 
   assert.strictEqual(2, $tabelaCategoria.children().length, 'Tabela possui 2 linhas após chamada');
+
+  // Testes de visualização de Ajax Loader
+
+  var $listarAjaxLoader = $('#listar-ajax-loader');
+
+  assert.ok($listarAjaxLoader.is(':visible'), 'Ajax Loader visível')
+
+  xhrGlobal.alwaysCallback();
+
+  var animacaoFinalizada = assert.async();
+
+  setTimeout(function(){
+    assert.ok(!$listarAjaxLoader.is(':visible'), 'Ajax Loader invisível');
+    animacaoFinalizada();
+  },1500);
+
+
+
 
 });

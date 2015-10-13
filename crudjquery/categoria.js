@@ -79,7 +79,7 @@ $(document).ready(function () {
 
 
   // Listando Categorias com Ajax
-  $listarAjaxLoader.slideDown();
+  //$listarAjaxLoader.slideDown();
 
   $.get('http://localhost:8080/categorias/rest').success(
     listarCategorias
